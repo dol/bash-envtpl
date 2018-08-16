@@ -16,7 +16,7 @@ The bash function `envtpl` performs this work.
 
 ## Usage
 
-1. Copy/paste file envtpl.sh or bash function envtpl into your entrypoint script
+1. Copy/paste file [envtpl.sh](envtpl.sh) or bash function envtpl into your entrypoint script
 2. Call envtpl function
 ```
 # Source envtpl.sh if file was copied
