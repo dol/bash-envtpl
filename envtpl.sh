@@ -3,12 +3,13 @@
 function envtpl() {
     local PREFIX=$1
     local TARGET=$2
-    local DELIMITER=${3:-_}
-    local DELIMITER_REPLACEMENT=${4:--}
+    local KEY_DELIMITER=${3:-_}
+    local KEY_DELIMITER_REPLACEMENT=${4:--}
+    local VALUE_DELIMITER=${5:-=}
 
     while IFS= read -r KEY_NAME; do
         KEY=${KEY_NAME#"${PREFIX}"}
-        KEY=$(echo "${KEY,,}" | tr "${DELIMITER}" "${DELIMITER_REPLACEMENT}")
-        echo "${KEY}=${!KEY_NAME}" >> "${TARGET}"
+        KEY=$(echo "${KEY,,}" | tr "${KEY_DELIMITER}" "${KEY_DELIMITER_REPLACEMENT}")
+        echo "${KEY}${VALUE_DELIMITER}${!KEY_NAME}" >> "${TARGET}"
     done < <(compgen -v "${PREFIX}")
 }
