@@ -26,6 +26,6 @@ envtpl ENV_PREFIX TARGET_FILE [KEY_DELIMITER='_'] [KEY_DELIMITER_REPLACEMENT='-'
 #!/usr/bin/env bash
 # Source envtpl.sh if file was copied
 . envtpl.sh
-# E.g APP_API_KEY=mykey stores api.key=mykey into /etc/app/production.conf
+# E.g APP_API_KEY=mykey stores api.key:mykey into /etc/app/production.conf
 envtpl APP_ /etc/app/production.conf '_' '.' ':'
 ```
